@@ -1,0 +1,12 @@
+{
+  "name": "backkkend",
+  "version": "1.0.0",
+  "description": "a backend at chai aur code  channel",
+  "license": "ISC",
+  "author": "sayan kumar",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
