@@ -241,7 +241,11 @@ const changeCurrentPassword =asyncHandler(async(req,res)=> {
 const getCurrentUser=asyncHandler(async (req,res)=> {
   return res
   .status(200)
-  .json(200,req.user,"current user fethced succesfully");
+  .json(new ApiResponse(
+    200,
+    req.user,
+    "current user fethced succesfully"
+  ))
   
 })
 
@@ -252,7 +256,7 @@ const updateAccountDetails=asyncHandler(async(req,res)=>{
     throw new ApiError(400,"All fields are required");
   }
 
-  User.findByIdAndUpdate(
+  const user=await User.findByIdAndUpdate(
     req.user?._id,
     {
       $set:{
@@ -314,12 +318,12 @@ const updateUserCoverImage=asyncHandler(async(req,res)=>{
   const CoverImageLocalPath=req.file?.path
 
 
-  if(!coverImageLocalPath){
+  if(!CoverImageLocalPath){
     throw new ApiError(400,"Cover image  file is missing")
   }
 
   const  coverImage=await uploadOnCloudinary
-  (coverImagerLocalPath)
+  (CoverImageLocalPath)
 
   if(!coverImage.url){
     throw new ApiError(400,"Error while uploading on avatar")
