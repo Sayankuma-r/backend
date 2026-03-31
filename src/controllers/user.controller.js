@@ -483,13 +483,14 @@ const getWatchHistory =asyncHandler(async(req,res)=>{
 
 export {
    registerUser,
-  LoginUser ,
-  LogoutUser,
-  refreshAccessToken,
-  getCurrentUser,
-  updateAccountDetails,
-  updateUserAvatar,
-  updateUserCoverImage,
-  getUserChannelProfile,
-  getWatchHistory
+   LoginUser,
+   LogoutUser,
+   refreshAccessToken,
+   changeCurrentPassword,   // ✅ ADD THIS
+   getCurrentUser,
+   updateAccountDetails,
+   updateUserAvatar,
+   updateUserCoverImage,
+   getUserChannelProfile,
+   getWatchHistory
 }
